@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial de Async/Await en JavaScript</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h1>Tutorial de Async/Await en JavaScript</h1>
+    
+    <h2>¿Qué es Async/Await?</h2>
+    <p>Async/Await es una forma de escribir código asíncrono en JavaScript que lo hace parecer y comportarse como código síncrono. Esto hace que el código sea más fácil de leer y entender.</p>
+    
+    <h2>Async</h2>
+    <p>La palabra clave <code class="keyword">async</code> se utiliza para declarar una función asíncrona. Una función async siempre devuelve una promesa.</p>
+    <div class="example">
+        <pre><code><span class="keyword">async function</span> <span class="function">miFuncionAsincrona</span>() {
+    <span class="keyword">return</span> <span class="string">"Hola, soy una función asíncrona"</span>;
+}
+
+<span class="comment">// Uso de la función asíncrona</span>
+miFuncionAsincrona().then(<span class="function">console.log</span>);</code></pre>
+    </div>
+    
+    <h2>Await</h2>
+    <p>La palabra clave <code class="keyword">await</code> se utiliza dentro de una función async para esperar a que se resuelva una promesa. Hace que JavaScript espere hasta que la promesa se resuelva y devuelva su resultado.</p>
+    <div class="example">
+        <pre><code><span class="keyword">async function</span> <span class="function">obtenerDatos</span>() {
+    <span class="keyword">let</span> respuesta = <span class="keyword">await</span> fetch(<span class="string">'https://api.ejemplo.com/datos'</span>);
+    <span class="keyword">let</span> datos = <span class="keyword">await</span> respuesta.json();
+    <span class="keyword">return</span> datos;
+}
+
+<span class="comment">// Uso de la función</span>
+<span class="keyword">async function</span> <span class="function">mostrarDatos</span>() {
+    <span class="keyword">let</span> datos = <span class="keyword">await</span> obtenerDatos();
+    console.log(datos);
+}</code></pre>
+    </div>
+    
+    <h2>Manejo de errores</h2>
+    <p>Puedes usar try/catch para manejar errores en funciones async/await:</p>
+    <div class="example">
+        <pre><code><span class="keyword">async function</span> <span class="function">manejarErrores</span>() {
+    <span class="keyword">try</span> {
+        <span class="keyword">let</span> datos = <span class="keyword">await</span> obtenerDatos();
+        console.log(datos);
+    } <span class="keyword">catch</span> (error) {
+        console.error(<span class="string">"Hubo un error:"</span>, error);
+    }
+}</code></pre>
+    </div>
+    
+    <h2>Conclusión</h2>
+    <p>Async/Await hace que el código asíncrono sea más fácil de escribir y entender. Permite escribir código asíncrono que se parece y se comporta como código síncrono, lo que facilita el manejo de operaciones asíncronas complejas.</p>
+
+    <script src="js/async-await.js"></script>
+</body>
+</html>
